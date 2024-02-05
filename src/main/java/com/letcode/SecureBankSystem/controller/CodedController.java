@@ -38,7 +38,7 @@ public class CodedController {
     @PostMapping("/addContact")
     public ResponseEntity<String> addContact(@RequestBody Contact contact) {
         if (contactExits(contact.getName())){
-            return ResponseEntity.status(HttpStatus.CONFLICT).body("Contact is already exists");
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Contact is already exists");
 
         }
         contacts.add(contact);
@@ -52,6 +52,8 @@ public class CodedController {
 
     @GetMapping("/getContactDetails")
     public ResponseEntity<Object> getContactDetails(@RequestParam String name) {
+
+
         Optional<Contact> foundContact = contacts.stream()
                 .filter(c -> c.getName().equals(name))
                 .findFirst();
@@ -65,3 +67,37 @@ public class CodedController {
 
 
 }
+
+
+
+
+
+
+//wild card:
+// public ResponseEntity<?> getContactDetails(@RequestParam String name) {
+//for(int
+//
+//
+//
+//        if (foundContact.isPresent()) {
+//            return ResponseEntity.ok(foundContact.get());
+//        } else {
+//            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Contact not found.");
+//        }
+
+
+
+
+//other way for the @PostMapping("/addContact"):
+// for (int i = 0; i < allContact.size(); i++) {
+//        if (allContact.get(i).getEmail() == Contact.getEmail().equals(Contact, getEmail())) {
+//            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+//        }
+//    }
+//        allContact.add(Contact);
+//        return new ResponseEntity<>(HttpStatus.CREATED);
+//}
+
+
+//error in the @GetMapping("/getContactDetails"):
+// if (createCR!=null && cretCR.getname()!=null && cretCR.getname().equals(name))}
