@@ -1,6 +1,6 @@
 package com.letcode.SecureBankSystem.entity;
 
-import com.letcode.SecureBankSystem.bo.user.enums.Status;
+import com.letcode.SecureBankSystem.util.enums.Status;
 
 import javax.persistence.*;
 
@@ -17,8 +17,9 @@ public class UserEntity {
     private Long phone;
     @Column(name = "email", nullable = false)
     private String email;
-
-    @Column(name = "updateStatus", nullable = false)
+    //Enum class : take the string and convert it to a string & saved
+    @Enumerated(EnumType.STRING)
+    @Column(name = "Status", nullable = false)
     private Status status;
 
     public Status getStatus() {
@@ -31,34 +32,34 @@ public class UserEntity {
     public Long getId() {
         return id;
     }
-
     public void setId(Long id) {
         this.id = id;
     }
 
+
     public String getName() {
         return name;
     }
-
     public void setName(String name) {
         this.name = name;
     }
 
+
     public Long getPhone() {
         return phone;
     }
-
     public void setPhone(Long phone) {
         this.phone = phone;
     }
 
+
     public String getEmail() {
         return email;
     }
-
     public void setEmail(String email) {
         this.email = email;
     }
+
 }
 
 
