@@ -1,7 +1,5 @@
 package com.letcode.SecureBankSystem.entity;
 
-import com.letcode.SecureBankSystem.service.UserService;
-import javax.naming.Name;
 import javax.persistence.*;
 
 @Entity
