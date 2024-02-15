@@ -51,5 +51,4 @@ public class GuestSuggestionService implements SuggestionService {
                     .collect(Collectors.toList());
 
         }
-    }
 }
